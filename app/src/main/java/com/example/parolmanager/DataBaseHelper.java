@@ -9,7 +9,6 @@ public class DataBaseHelper {
     public static final int version = 1;
     public  static String dbName="Passw.db";
     public static final String TABLE_NAME ="password";
-    ф
     public static final String COL1 = "id";
     public static final String COL2 = "siteName";
     public static final String COL3 = "login";

@@ -3,65 +3,58 @@ package com.example.parolmanager;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
-public class DataBaseHelper {
-    // SQL-запрос для создания таблицы
+public class DataBaseHelper extends SQLiteOpenHelper {
+    // Константы для БД
     public static final int version = 1;
-    public  static String dbName="Passw.db";
-    public static final String TABLE_NAME ="password";
+    public static String dbName = "Passw.db";
+    public static final String TABLE_NAME = "password";
     public static final String COL1 = "id";
     public static final String COL2 = "siteName";
     public static final String COL3 = "login";
     public static final String COL4 = "pass";
     public static final String COL5 = "description";
 
-    private static final String CREATE_TABLE="create table if not exists "+ TABLE_NAME + "(" + COL1 + " INTEGER PRIMARY KEY AUTOINCREMENT,"+COL2+" TEXT NOT NULL,"
-            + COL3 + " TEXT, " +COL4 + " TEXT, " +  COL5 + " TEXT);";
-    private static final String DROP_TABLE = "DROP TABLE IF EXISTS "+ TABLE_NAME;
-
-    private Context context;
+    private static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "(" +
+            COL1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COL2 + " TEXT NOT NULL, " +
+            COL3 + " TEXT, " +
+            COL4 + " TEXT, " +
+            COL5 + " TEXT);";
 
     public DataBaseHelper(Context context) {
-        super(context,dbName,null,version);
-        context = this.context;
+        super(context, dbName, null, version);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
-        try {
-            db.execSQL(CREATE_TABLE);
-        } catch (Exception e) {
-        }
+        db.execSQL(CREATE_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(DROP_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
 
-    public void deleteById(SQLiteDatabase db, int id) {
-        // Удаляем запись с указанным ID
-        db.delete(TABLE_NAME, "_id=?", new String[] {String.valueOf(id)});
-    }
-
-    public boolean InsertEmployee(Employee objEmp)
-    {
-        SQLiteDatabase db=this.getWritableDatabase();
+    public boolean insertEmployee(Employee employee) {
+        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COL2,objEmp.getTaskName());
-        cv.put(COL3,objEmp.getTaskDescription());
-        cv.put(COL4,objEmp.getTaskDate());
-        cv.put(COL5,objEmp.getTaskPriority());
 
-        long result = db.insert(TABLE_NAME,null,cv);
-        if (result == -1)
+        cv.put(COL2, employee.getSiteName());
+        cv.put(COL3, employee.getLogin());
+        cv.put(COL4, employee.getPass());
+        cv.put(COL5, employee.getDescription());
 
-            return false;
-        else
-            return true;
+        long result = db.insert(TABLE_NAME, null, cv);
+        db.close();
+        return result != -1;
     }
 
-
+    public void deleteById(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME, COL1 + "=?", new String[]{String.valueOf(id)});
+        db.close();
+    }
 }

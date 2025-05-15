@@ -5,19 +5,44 @@
       <config />
     </shared>
     <layouts>
+<<<<<<< HEAD
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+        <config>
+          <theme>@style/Theme.ParolManager</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/addpasswd_activity.xml">
+        <config>
+          <theme>@style/Theme.ParolManager</theme>
+        </config>
+      </layout>
+=======
+>>>>>>> 0bd428022b0067bd81b7c09a9d6de1d6c51a79f5
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/entrance_activity.xml">
         <config>
           <theme>@style/Theme.ParolManager</theme>
         </config>
       </layout>
+<<<<<<< HEAD
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/register_activity.xml">
+        <config>
+          <theme>@style/Theme.ParolManager</theme>
+        </config>
+      </layout>
+=======
+>>>>>>> 0bd428022b0067bd81b7c09a9d6de1d6c51a79f5
     </layouts>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad5a0233-4fa3-4fd8-a709-03edd7f448a5" name="Changes" comment="">
+    <list default="true" id="ad5a0233-4fa3-4fd8-a709-03edd7f448a5" name="Changes" comment="First commit">
       <changelist_data name="Rodion Okoneshnikov" email="okrodikk@gmail.com" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/parolmanager/Emloyee_login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.lock" afterDir="false" />
@@ -28,6 +53,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/parolmanager/DataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/parolmanager/DataBaseHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/parolmanager/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/parolmanager/Register.java" afterDir="false" />
+>>>>>>> 0bd428022b0067bd81b7c09a9d6de1d6c51a79f5
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,17 +75,37 @@
         <option value="Class" />
       </list>
     </option>
+<<<<<<< HEAD
+  </component>
+  <component name="Git.Settings">
+    <branch-grouping />
+    <option name="FILTER_BY_ACTION_IN_POPUP" value="false" />
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Rodion Okoneshnikov &lt;okrodikk@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SHOW_RECENT_BRANCHES" value="false" />
+    <option name="SHOW_TAGS" value="false" />
+  </component>
+=======
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+>>>>>>> 0bd428022b0067bd81b7c09a9d6de1d6c51a79f5
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {}
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/poguk12/passManager.git&quot;,
+<<<<<<< HEAD
+    &quot;accountId&quot;: &quot;733e7cc2-75ef-4e5a-a600-4996657a56d7&quot;
+=======
     &quot;accountId&quot;: &quot;3932e0aa-f207-45eb-8b6e-25ce4a82eb51&quot;
+>>>>>>> 0bd428022b0067bd81b7c09a9d6de1d6c51a79f5
   }
 }</component>
   <component name="ProjectColorInfo">{

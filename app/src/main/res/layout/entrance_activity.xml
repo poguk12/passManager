@@ -36,6 +36,15 @@
         <Button
             android:layout_width="500px"
             android:layout_height="wrap_content"
+            android:id="@+id/refresh"
+            android:text="Обновить">
+
+        </Button>
+
+
+        <Button
+            android:layout_width="500px"
+            android:layout_height="wrap_content"
             android:id="@+id/AddBack"
             android:text="Назад">
 

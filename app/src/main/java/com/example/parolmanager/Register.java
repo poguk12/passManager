@@ -11,10 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Register extends AppCompatActivity {
 
-    private EditText login;
-    private EditText pass;
+    private EditText edit_login;
+    private EditText edit_pass;
 
-
+    private DataBaseHelper dbHelper;
 
     private String addLogin;
     private String addPass;
@@ -26,8 +26,10 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_activity);
 
-        login = findViewById(R.id.editTextLogin);
-        pass = findViewById(R.id.editTextPasswd);
+        dbHelper = new DataBaseHelper(this);
+
+        edit_login = findViewById(R.id.editTextLogin);
+        edit_pass = findViewById(R.id.editTextPasswd);
 
         Button btnAddNewPass = findViewById(R.id.buttonRegister);
         btnAddNewPass.setOnClickListener(new View.OnClickListener(){
@@ -46,6 +48,19 @@ public class Register extends AppCompatActivity {
                 }
 
                 else {
+
+                    // Создаем объект Employee с введенными данными
+                    Emloyee_login emloyee_login = new Emloyee_login(addLogin, addPass);
+
+                    // Пытаемся добавить запись в базу данных
+                    boolean isInserted = dbHelper.insertLogin(emloyee_login);
+
+                    if(isInserted) {
+                        Toast.makeText(getApplicationContext(), "Данные успешно сохранены", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Ошибка при сохранении данных", Toast.LENGTH_SHORT).show();
+                    }
+
                     Intent intent = new Intent(Register.this, MainActivity.class);
                     startActivity(intent);
                 }
@@ -64,7 +79,7 @@ public class Register extends AppCompatActivity {
     }
 
     private void giveDate(){
-        addLogin = login.getText().toString();
-        addPass = pass.getText().toString();
+        addLogin = edit_login.getText().toString();
+        addPass = edit_pass.getText().toString();
     }
 }

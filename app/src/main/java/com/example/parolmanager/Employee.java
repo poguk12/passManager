@@ -3,48 +3,51 @@ package com.example.parolmanager;
 public class Employee {
     private String siteName;
     private String login;
-    private String name;
-    private String opisanie;
+    private String pass;  // Было name, теперь pass для соответствия БД
+    private String description;  // Было opisanie, теперь description
 
     public Employee() {
     }
 
-    public Employee(String taskName, String taskDescription, String taskDate, String taskPriority) {
-        this.siteName = taskName;
-        this.login = taskDescription;
-        this.name = taskDate;
-        this.opisanie = taskPriority;
+    // Конструктор должен использовать понятные имена, соответствующие БД
+    public Employee(String siteName, String login, String pass, String description) {
+        this.siteName = siteName;
+        this.login = login;
+        this.pass = pass;
+        this.description = description;
     }
 
-    public String getTaskName() {
+    // Геттеры должны соответствовать именам полей БД
+    public String getSiteName() {
         return siteName;
     }
 
-    public String getTaskDescription() {
+    public String getLogin() {
         return login;
     }
 
-    public String getTaskDate() {
-        return name;
+    public String getPass() {
+        return pass;
     }
 
-    public String getTaskPriority() {
-        return opisanie;
+    public String getDescription() {
+        return description;
     }
 
-    public void setEmployeeName(String Name) {
-        this.siteName = Name;
+    // Сеттеры также должны быть согласованы
+    public void setSiteName(String siteName) {
+        this.siteName = siteName;
     }
 
-    public void setEmployeeDesig(String Description) {
-        this.login = Description;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public void setEmployeeSalary(String Date) {
-        this.name = Date;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
-    public void setPrior(String Priority) {
-        this.opisanie = Priority;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

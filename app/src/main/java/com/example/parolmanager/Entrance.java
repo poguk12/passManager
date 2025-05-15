@@ -42,6 +42,7 @@ public class Entrance extends AppCompatActivity {
         Button btnRefresh = findViewById(R.id.refresh);
         btnRefresh.setOnClickListener(new View.OnClickListener(){
             @Override
+
             public void onClick(View v) {
                 passWDUpdate();
             }
@@ -60,6 +61,8 @@ public class Entrance extends AppCompatActivity {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + DataBaseHelper.TABLE_NAME, null);
 
+        parols = "";
+
         if (cursor.moveToFirst()) {
             do {
                 int id = cursor.getInt(cursor.getColumnIndexOrThrow(DataBaseHelper.COL1));
@@ -68,7 +71,7 @@ public class Entrance extends AppCompatActivity {
                 String Pass = cursor.getString(cursor.getColumnIndexOrThrow(DataBaseHelper.COL4));
                 String Description = cursor.getString(cursor.getColumnIndexOrThrow(DataBaseHelper.COL5));
 
-                parols = id + SiteName + Login + Pass + Description;
+                parols += "Имя сайта: " + SiteName + ". Логин: " + Login + ". Пароль: " + Pass + ". Заметки: " + Description + "\n";
             }
             while (cursor.moveToNext());
         }

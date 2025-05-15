@@ -18,16 +18,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ad5a0233-4fa3-4fd8-a709-03edd7f448a5" name="Changes" comment="">
       <changelist_data name="Rodion Okoneshnikov" email="okrodikk@gmail.com" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/parolmanager/DataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/parolmanager/DataBaseHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/parolmanager/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/parolmanager/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/parolmanager/Entrance.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/parolmanager/Entrance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/parolmanager/addPasswd.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/parolmanager/addPasswd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/entrance_activity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/entrance_activity.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,12 +40,12 @@
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {}
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/poguk12/passManager.git",
-    "accountId": "3932e0aa-f207-45eb-8b6e-25ce4a82eb51"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/poguk12/passManager.git&quot;,
+    &quot;accountId&quot;: &quot;3932e0aa-f207-45eb-8b6e-25ce4a82eb51&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>

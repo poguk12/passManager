@@ -10,7 +10,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class addPasswd extends AppCompatActivity {
-
     private EditText siteName;
     private EditText login;
     private EditText pass;
@@ -28,7 +27,6 @@ public class addPasswd extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addpasswd_activity);
 
-        // Инициализация базы данных
         dbHelper = new DataBaseHelper(this);
 
         siteName = findViewById(R.id.EditName);
@@ -55,10 +53,8 @@ public class addPasswd extends AppCompatActivity {
                     return;
                 }
                 else {
-                    // Создаем объект Employee с введенными данными
                     Employee newEmployee = new Employee(Name, Login, Pass, Opisanie);
 
-                    // Пытаемся добавить запись в базу данных
                     boolean isInserted = dbHelper.insertEmployee(newEmployee);
 
                     if(isInserted) {
@@ -67,10 +63,9 @@ public class addPasswd extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Ошибка при сохранении данных", Toast.LENGTH_SHORT).show();
                     }
 
-                    // Переходим обратно на главный экран
                     Intent intent = new Intent(addPasswd.this, Entrance.class);
                     startActivity(intent);
-                    finish(); // Закрываем текущую активность
+                    finish();
                 }
             }
         });
@@ -81,7 +76,7 @@ public class addPasswd extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(addPasswd.this, Entrance.class);
                 startActivity(intent);
-                finish(); // Закрываем текущую активность
+                finish();
             }
         });
     }
@@ -95,7 +90,7 @@ public class addPasswd extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        dbHelper.close(); // Закрываем соединение с БД при уничтожении активности
+        dbHelper.close();
         super.onDestroy();
     }
 }

@@ -36,13 +36,13 @@ public class Entrance extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Entrance.this, addPasswd.class);
                 startActivity(intent);
+                finish();
             }
         });
 
         Button btnRefresh = findViewById(R.id.refresh);
         btnRefresh.setOnClickListener(new View.OnClickListener(){
             @Override
-
             public void onClick(View v) {
                 passWDUpdate();
             }
@@ -54,6 +54,7 @@ public class Entrance extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Entrance.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

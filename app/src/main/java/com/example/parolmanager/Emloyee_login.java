@@ -7,7 +7,6 @@ public class Emloyee_login {
     public Emloyee_login() {
     }
 
-    // Конструктор должен использовать понятные имена, соответствующие БД
     public Emloyee_login(String login, String pass) {
         this.login = login;
         this.pass = pass;

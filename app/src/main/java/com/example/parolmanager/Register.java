@@ -48,11 +48,7 @@ public class Register extends AppCompatActivity {
                 }
 
                 else {
-
-                    // Создаем объект Employee с введенными данными
                     Emloyee_login emloyee_login = new Emloyee_login(addLogin, addPass);
-
-                    // Пытаемся добавить запись в базу данных
                     boolean isInserted = dbHelper.insertLogin(emloyee_login);
 
                     if(isInserted) {
@@ -81,5 +77,11 @@ public class Register extends AppCompatActivity {
     private void giveDate(){
         addLogin = edit_login.getText().toString();
         addPass = edit_pass.getText().toString();
+    }
+
+    @Override
+    protected void onDestroy() {
+        dbHelper.close();
+        super.onDestroy();
     }
 }

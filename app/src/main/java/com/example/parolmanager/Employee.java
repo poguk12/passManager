@@ -3,13 +3,11 @@ package com.example.parolmanager;
 public class Employee {
     private String siteName;
     private String login;
-    private String pass;  // Было name, теперь pass для соответствия БД
-    private String description;  // Было opisanie, теперь description
+    private String pass;
+    private String description;
 
     public Employee() {
     }
-
-    // Конструктор должен использовать понятные имена, соответствующие БД
     public Employee(String siteName, String login, String pass, String description) {
         this.siteName = siteName;
         this.login = login;
@@ -17,7 +15,6 @@ public class Employee {
         this.description = description;
     }
 
-    // Геттеры должны соответствовать именам полей БД
     public String getSiteName() {
         return siteName;
     }
@@ -34,7 +31,6 @@ public class Employee {
         return description;
     }
 
-    // Сеттеры также должны быть согласованы
     public void setSiteName(String siteName) {
         this.siteName = siteName;
     }

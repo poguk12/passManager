@@ -10,7 +10,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final int version = 1;
     public static String dbName = "Passw.db";
 
-    // Таблица с паролями
     public static final String TABLE_NAME = "password";
     public static final String COL1 = "id";
     public static final String COL2 = "siteName";
@@ -18,13 +17,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COL4 = "pass";
     public static final String COL5 = "description";
 
-    // Таблица с логинами (для входа в приложение)
     public static final String TABLE_NAMES_LOGIN = "login";
     public static final String COL1_LOGIN = "id";
     public static final String COL2_LOGIN = "login";
     public static final String COL3_LOGIN = "pass";
 
-    // SQL для создания таблицы с паролями
     private static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "(" +
             COL1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             COL2 + " TEXT NOT NULL, " +
@@ -32,7 +29,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             COL4 + " TEXT, " +
             COL5 + " TEXT);";
 
-    // SQL для создания таблицы с логинами (исправлено: добавлена закрывающая скобка и точка с запятой)
     private static final String CREATE_TABLE_LOGIN = "CREATE TABLE IF NOT EXISTS " + TABLE_NAMES_LOGIN + "(" +
             COL1_LOGIN + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             COL2_LOGIN + " TEXT NOT NULL, " +
@@ -44,20 +40,17 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Создаем обе таблицы при создании БД
         db.execSQL(CREATE_TABLE);
         db.execSQL(CREATE_TABLE_LOGIN);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Удаляем обе таблицы при обновлении БД
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAMES_LOGIN);
         onCreate(db);
     }
 
-    // Добавление записи в таблицу паролей
     public boolean insertEmployee(Employee employee) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -72,7 +65,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    // Добавление записи в таблицу логинов (исправлено: имя метода и название таблицы)
     public boolean insertLogin(Emloyee_login employeeLogin) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -85,7 +77,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    // Удаление записи из таблицы паролей по ID
     public void deleteById(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_NAME, COL1 + "=?", new String[]{String.valueOf(id)});

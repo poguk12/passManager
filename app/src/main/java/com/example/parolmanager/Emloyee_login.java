@@ -1,9 +1,11 @@
 package com.example.parolmanager;
 
 public class Emloyee_login {
+    //обьявление переменных
     private String login;
     private String pass;
 
+    //констуркторы
     public Emloyee_login() {
     }
 
@@ -12,6 +14,7 @@ public class Emloyee_login {
         this.pass = pass;
     }
 
+    //геттеры
     public String getLogin() {
         return login;
     }
@@ -20,7 +23,7 @@ public class Emloyee_login {
         return pass;
     }
 
-
+    //сеттеры
     public void setLogin(String login) {
         this.login = login;
     }

@@ -39,26 +39,30 @@ public class Register extends AppCompatActivity {
             public void onClick(View v) {
                 giveDate();
 
-                String combinedText = addLogin + addPass;
-
+                //если одного нету то не проходит
                 if(addLogin.isEmpty() ) {
                     Toast.makeText(getApplicationContext(), "Нету логина", Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
                 else if (addPass.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Нету пароля", Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
                 else {
-
+                    //БД
                     SQLiteDatabase db = dbHelper.getReadableDatabase();
 
+                    //создание завпроса
                     String query = "SELECT * FROM " + DataBaseHelper.TABLE_NAMES_LOGIN + " WHERE " + DataBaseHelper.COL2_LOGIN + " = ?";
                     Cursor cursor = db.rawQuery(query, new String[]{addLogin});
 
+                    //првоерка на уникальность
                     if (cursor.moveToFirst()) {
                         Toast.makeText(Register.this, "Такой пользователь есть", Toast.LENGTH_SHORT).show();
                     }
+                    //сохранение в БД
                     else {
                         Emloyee_login emloyee_login = new Emloyee_login(addLogin, addPass);
                         boolean isInserted = dbHelper.insertLogin(emloyee_login);
@@ -89,11 +93,13 @@ public class Register extends AppCompatActivity {
         });
     }
 
+    //получнеие данных
     private void giveDate(){
         addLogin = edit_login.getText().toString();
         addPass = edit_pass.getText().toString();
     }
 
+    //выключекние бД
     @Override
     protected void onDestroy() {
         dbHelper.close();

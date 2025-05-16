@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
-    // Константы для базы данных
+    // Обьявление пепермнных
     public static final int version = 1;
     public static String dbName = "Passw.db";
 
@@ -22,6 +22,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COL2_LOGIN = "login";
     public static final String COL3_LOGIN = "pass";
 
+    //создание первой таблицы
     private static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "(" +
             COL1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             COL2 + " TEXT NOT NULL, " +
@@ -29,21 +30,25 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             COL4 + " TEXT, " +
             COL5 + " TEXT);";
 
+    //вторая
     private static final String CREATE_TABLE_LOGIN = "CREATE TABLE IF NOT EXISTS " + TABLE_NAMES_LOGIN + "(" +
             COL1_LOGIN + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             COL2_LOGIN + " TEXT NOT NULL, " +
             COL3_LOGIN + " TEXT NOT NULL);";
 
+    //создание БД
     public DataBaseHelper(Context context) {
         super(context, dbName, null, version);
     }
 
+    //выполнения запроса создания таблиц
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE);
         db.execSQL(CREATE_TABLE_LOGIN);
     }
 
+    //обновления БД
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
@@ -51,6 +56,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    //обращение к эплойии
     public boolean insertEmployee(Employee employee) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -65,6 +71,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
+    //обращение к эплойии
     public boolean insertLogin(Emloyee_login employeeLogin) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -77,10 +84,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
+    //удаление по айдйи
     public void deleteById(long id) {
-        int intId = (int) id;
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_NAME, COL1 + "=?", new String[]{String.valueOf(intId)});
+        db.delete(TABLE_NAME, COL1 + "=?", new String[]{String.valueOf(id)});
         db.close();
     }
 }

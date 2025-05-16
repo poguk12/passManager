@@ -72,12 +72,16 @@ public class Entrance extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id)
             {
-                // Получаем выбранный элемент по позиции
                 String selectedItem = tasks.get(position);
 
-                String detailedMessage = "Подробная информация:\n" +  "----------------------\n" + "Запись: " + selectedItem + "\n" +  "ID: " + position;
+                String detailedMessage = "Подробная информация:\n" +  "----------------------\n" + "Запись: " + selectedItem + "\n";
 
-                new AlertDialog.Builder(Entrance.this).setTitle("Подробная информация").setMessage(detailedMessage).setPositiveButton("OK", null).show();
+                new AlertDialog.Builder(Entrance.this).setTitle("Подробная информация").setMessage(detailedMessage).setPositiveButton("OK", null).setNegativeButton("Удалить", (dialog, which) -> {
+                    dbHelper.deleteById(id);
+                    tasks.remove(position);
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(Entrance.this, "Запись удалена", Toast.LENGTH_SHORT).show();
+                }).show();
             }
         });
     }
@@ -95,7 +99,7 @@ public class Entrance extends AppCompatActivity {
                 String Pass = cursor.getString(cursor.getColumnIndexOrThrow(DataBaseHelper.COL4));
                 String Description = cursor.getString(cursor.getColumnIndexOrThrow(DataBaseHelper.COL5));
 
-                parols = "Имя сайта: " + SiteName + ". Логин: " + Login + ". Пароль: " + Pass + ". Заметки: " + Description + "\n";
+                parols = "ID: " + id + ". Имя сайта: " + SiteName + ". Логин: " + Login + ". Пароль: " + Pass + ". Заметки: " + Description + "\n";
 
                 tasks.add(parols);
             }

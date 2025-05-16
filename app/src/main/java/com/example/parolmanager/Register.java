@@ -1,6 +1,8 @@
 package com.example.parolmanager;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -48,19 +50,32 @@ public class Register extends AppCompatActivity {
                 }
 
                 else {
-                    Emloyee_login emloyee_login = new Emloyee_login(addLogin, addPass);
-                    boolean isInserted = dbHelper.insertLogin(emloyee_login);
 
-                    if(isInserted) {
-                        Toast.makeText(getApplicationContext(), "Данные успешно сохранены", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Ошибка при сохранении данных", Toast.LENGTH_SHORT).show();
+                    SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+                    String query = "SELECT * FROM " + DataBaseHelper.TABLE_NAMES_LOGIN + " WHERE " + DataBaseHelper.COL2_LOGIN + " = ?";
+                    Cursor cursor = db.rawQuery(query, new String[]{addLogin});
+
+                    if (cursor.moveToFirst()) {
+                        Toast.makeText(Register.this, "Такой пользователь есть", Toast.LENGTH_SHORT).show();
                     }
+                    else {
+                        Emloyee_login emloyee_login = new Emloyee_login(addLogin, addPass);
+                        boolean isInserted = dbHelper.insertLogin(emloyee_login);
 
-                    Intent intent = new Intent(Register.this, MainActivity.class);
-                    startActivity(intent);
+                        if(isInserted) {
+                            Toast.makeText(getApplicationContext(), "Данные успешно сохранены", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(), "Ошибка при сохранении данных", Toast.LENGTH_SHORT).show();
+                        }
+
+                        Intent intent = new Intent(Register.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+                    cursor.close();
+                    db.close();
                 }
-
             }
         });
 

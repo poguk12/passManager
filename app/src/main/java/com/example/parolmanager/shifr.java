@@ -13,7 +13,6 @@ public class shifr {
         this(text, 3);
     }
 
-    //шИфрование
     public String encrypt() {
         StringBuilder result = new StringBuilder();
         for (char c : text.toCharArray()) {
@@ -25,7 +24,6 @@ public class shifr {
         }
         return result.toString();
     }
-    //дешифрование
     public String decrypt() {
         return new shifr(text, 26 - (shift % 26)).encrypt();
     }

@@ -25,7 +25,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    //обьявление переменных
     private DataBaseHelper dbHelper;
 
     private EditText login;
@@ -59,18 +58,14 @@ public class MainActivity extends AppCompatActivity {
 
                 SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-                //создание завпроса в БД
                 String query = "SELECT * FROM " + DataBaseHelper.TABLE_NAMES_LOGIN + " WHERE " + DataBaseHelper.COL2_LOGIN + " = ?";
                 Cursor cursor = db.rawQuery(query, new String[]{addLogin});
 
-                //првоерка
                 if (cursor.moveToFirst()) {
 
                     String dbPass = cursor.getString(cursor.getColumnIndexOrThrow(DataBaseHelper.COL3_LOGIN));
 
-                    //првоерка есть ли такой пароль
                     if (addPass.equals(dbPass)) {
-                        //если есть то входим в него
                         Intent intent = new Intent(MainActivity.this, Entrance.class);
                         startActivity(intent);
                     }
@@ -82,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Пользователь не найден", Toast.LENGTH_SHORT).show();
                 }
 
-                //закрываем БД
                 cursor.close();
                 db.close();
             }

@@ -1,13 +1,10 @@
 package com.example.parolmanager;
 
 public class Employee {
-    //обяьвление переменных
     private String siteName;
     private String login;
     private String pass;
     private String description;
-
-    //констуркторы
     public Employee() {
     }
     public Employee(String siteName, String login, String pass, String description) {
